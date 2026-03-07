@@ -8,10 +8,10 @@
 	- Open Terminal (PowerShell) and run `docker --version`.
 	- **Recommendation:** Install a Linux distribution from the Microsoft Store. You can then integrate these resources into Docker Desktop.
 	-
-		![[docker4.png]]
+		![img\docker4.png]
 
 
-		![[docker5.png]]
+		![[img/docker5.png]]
 - [Linux]([https://docs.docker.com/desktop/setup/install/linux/ubuntu/](https://docs.docker.com/desktop/setup/install/linux/))
 
 	- *Ubuntu 22.04, 24.04 or the latest non-LTS version*
@@ -69,12 +69,12 @@ docker run -d -p 8080:80 docker/welcome-to-docker
 
 Your container is now **accessible** on port 8080. Visit http://localhost:8080.
 
-![[docker0.png]]
+![[img/docker0.png]]
 
-![[docker1.png]]
+![[img/docker1.png]]
 ## Manage containers using Docker Desktop
 
-![[docker3.png]]
+![[img/docker3.png]]
 
 - View container information, including **logs** and **files**.
 - Access the shell via the **Exec** tab.
@@ -164,11 +164,11 @@ By default, volumes aren't automatically removed when you tear down a Compose st
 
 
 
-![[docker8.png]]
+![[img/docker8.png]]
 
 
 
-![[docker9.png]]
+![[img/docker9.png]]
 Docker is a containerization platform that packages an application and its dependencies into a standardized unit called a container. Containers ensure consistency across different environments by providing an isolated runtime environment. Unlike virtual machines, containers share the host system’s kernel, making them lightweight and efficient.
 
 Containers do not require a separate operating system (OS) instance. Instead, they share the underlying OS kernel with the host system. This eliminates the need for additional OS resources and overhead, making containers lightweight and fast to start.

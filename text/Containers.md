@@ -34,7 +34,28 @@ In this section, we are going to **launch** a container to **explore** its f
 
 Once inside, you can execute commands directly within the container. **In order to verify** the environment, type `cat /etc/os-release`. The operating system details **should then be displayed**.
 .
-![[docker10.png]]
+![[img/docker10.png]]
 
 The **main process** is **launched** when you **execute** `docker run`. **However**, if an additional command is provided—such as `bash`—the container **will not exhibit** its default behavior.
+
+
+When you execute the following command:
+
+```
+docker run -it ubuntu
+```
+you will access the terminal of the container and you can run commands there. For example, you can run the following command to inspect the version of the operating system:
+
+```
+cat /etc/os-release
+```
+Or even you can install `wget` or `curl` to download files from the internet. To install these packages, you can use the following command:
+
+```
+apt-get install wget    
+apt-get install curl    
+```
+
+Alpine Linux is a good option for containers because it is very  lightweight and secure.
+
 
