@@ -22,6 +22,6 @@ docker compose down
 docker compose down --volumes
 ```
 
-![docker8.png](../img/docker8.png)
 
-![docker9.png](../img/docker9.png)
+
+

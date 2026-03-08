@@ -1,5 +1,12 @@
 # 4. Working with Containers
 
+**Containers are:**
+- **Self-contained**: Each container has everything it needs to function with no reliance on any pre-installed dependencies on the host machine
+- **Isolated**: They have minimal influence on the host and other containers, increasing security
+- **Independent**: Each container is independently managed. Deleting one container won't affect any others
+- **Portable**: Containers can run anywhere - the same container works on your development machine, in a data center, or in the cloud
+
+
 ## Run Your First Container
 
 ```bash
@@ -135,6 +142,3 @@ Docker Desktop allows you to:
 - Access the shell via the **Exec** tab
 - Perform actions like **pause, resume, start, or stop**
 
-**Traefik Proxy:** Traefik is an application proxy that routes requests to the right service. It sends all requests for `localhost/api/*` to the backend, requests for `localhost/*` to the frontend, and requests for `db.localhost` to phpMyAdmin. This provides access to all applications using port 80.
-
-![docker10.png](../img/docker10.png)

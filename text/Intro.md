@@ -7,11 +7,10 @@
 	- Enable **Windows Subsystem for Linux (WSL)**.
 	- Open Terminal (PowerShell) and run `docker --version`.
 	- **Recommendation:** Install a Linux distribution from the Microsoft Store. You can then integrate these resources into Docker Desktop.
-	-
-		![img\docker4.png]
+	![[img/docker4.png]]
+	
 
-
-		![[img/docker5.png]]
+	![[/img/docker5.png]]
 - [Linux]([https://docs.docker.com/desktop/setup/install/linux/ubuntu/](https://docs.docker.com/desktop/setup/install/linux/))
 
 	- *Ubuntu 22.04, 24.04 or the latest non-LTS version*

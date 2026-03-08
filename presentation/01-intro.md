@@ -6,6 +6,7 @@ Docker is a containerization platform that packages an application and its depen
 
 Unlike virtual machines, containers share the host system's kernel, making them lightweight and efficient.
 
+![docker8.png](../img/docker8.png)
 **Key characteristics:**
 - Containers do not require a separate operating system (OS) instance
 - They share the underlying OS kernel with the host system
@@ -18,14 +19,6 @@ Docker relies on Linux kernel features such as namespaces and cgroups (control g
 - **Namespaces**: Provide isolated environments for processes so that containers do not interfere with each other. Each container has its own network, filesystem, process tree, and other isolated components.
 - **cgroups**: Allow fine-grained control over resource allocation and management, ensuring that each container gets the right amount of CPU, memory, and other resources.
 
-## Why Docker?
+![docker9.png](../img/docker9.png)
 
-Imagine you're developing a killer web app that has three main components: a React frontend, a Python API, and a PostgreSQL database. If you wanted to work on this project, you'd have to install Node, Python, and PostgreSQL.
 
-How do you make sure you have the same versions as your team? Or your CI/CD system? Or what's used in production?
-
-**Containers are:**
-- **Self-contained**: Each container has everything it needs to function with no reliance on any pre-installed dependencies on the host machine
-- **Isolated**: They have minimal influence on the host and other containers, increasing security
-- **Independent**: Each container is independently managed. Deleting one container won't affect any others
-- **Portable**: Containers can run anywhere - the same container works on your development machine, in a data center, or in the cloud
