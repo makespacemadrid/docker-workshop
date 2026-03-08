@@ -18,13 +18,17 @@ To stop a container running in the foreground, use `Ctrl + C`. 
 **Useful commands (use `--help` for more information):**
 
 - `docker ps` or `docker container ls`: Lists running containers.
-- `docker stop <id/name>`: Stops a container. You only need the first few characters of the ID.
+- `docker stop <id/name>`: Stops a container. You only need the first few characters of the ID. When you execute this command, docker send a SIGTERM and if it doesn't respond, it sends a SIGKILL.
 - `docker start <id>`: Starts a stopped container.
 - `docker rm <id>`: Deletes a container. It must be stopped first, or you can force it with `docker rm -f`.
 - `docker logs <id>`: Displays the container's logs.
 - `docker top <id>`: Shows the processes running inside the container (main and secondary processes).
 - `docker inspect image/<id> `
-- `docker stats` 
+- `docker stats`  
+- `docker system df`: Shows the amount of disk space used by containers and images.
+- `docker ps -q`: Lists the IDs of running containers.
+- `docker stop $(docker ps -q)`: Stops all running containers.
+- `docker prune`: Removes all unused containers.
 
 **Creating a Container**
 
@@ -34,7 +38,7 @@ In this section, we are going to **launch** a container to **explore** its f
 
 Once inside, you can execute commands directly within the container. **In order to verify** the environment, type `cat /etc/os-release`. The operating system details **should then be displayed**.
 .
-![[img/docker10.png]]
+![[https://github.com/jose8david/docker-workshop-/blob/main/img/docker10.png]]
 
 The **main process** is **launched** when you **execute** `docker run`. **However**, if an additional command is provided—such as `bash`—the container **will not exhibit** its default behavior.
 
