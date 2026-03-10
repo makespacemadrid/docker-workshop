@@ -442,7 +442,7 @@ You **must** replace the default environment variables to ensure the application
 > [!CAUTION] 
 > If you keep the default values, the application will fail to start for security reasons.
 
-![edit APP_SECRET](./img/docker11.png)
+![edit APP_SECRET](presentation/img/docker11.png)
 
 > [!TIP] You can quickly generate a secure 32-character secret using OpenSSL:
 > 
