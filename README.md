@@ -21,7 +21,7 @@ Docker is a containerization platform that packages an application and its depen
 
 Unlike virtual machines, containers share the host system's kernel, making them lightweight and efficient.
 
-![docker8.png](../img/docker8.png)
+![docker8.png](presentation/img/docker8.png)
 
 **Key characteristics:**
 - Containers do not require a separate operating system (OS) instance
@@ -32,7 +32,7 @@ Unlike virtual machines, containers share the host system's kernel, making them 
 - **Namespaces**: Provide isolated environments for processes so that containers do not interfere with each other. Each container has its own network, filesystem, process tree, and other isolated components.
 - **cgroups** (control groups): Allow fine-grained control over resource allocation and management, ensuring that each container gets the right amount of CPU, memory, and other resources.
 
-![docker9.png](../img/docker9.png)
+![docker9.png](presentation/img/docker9.png)
 ---
 
 # Install Docker Desktop
@@ -51,9 +51,9 @@ Unlike virtual machines, containers share the host system's kernel, making them 
 
 **Recommendation:** Install a Linux distribution from the Microsoft Store and integrate it into Docker Desktop
 
-![docker4.png](../img/docker4.png)
+![docker4.png](presentation/img/docker4.png)
 
-![docker5.png](../img/docker5.png)
+![docker5.png](presentation/img/docker5.png)
 
 ### Linux (Ubuntu 22.04, 24.04 or latest non-LTS)
 
@@ -106,9 +106,9 @@ docker run -d -p 8080:80 docker/welcome-to-docker
 
 Your container is now **accessible** on port 8080. Visit http://localhost:8080
 
-![docker0.png](../img/docker0.png)
+![docker0.png](presentation/img/docker0.png)
 
-![docker1.png](../img/docker1.png)
+![docker1.png](presentation/img/docker1.png)
 
 ## Basic docker run Command
 
@@ -226,7 +226,7 @@ apt-get install curl
 
 ## Manage Containers Using Docker Desktop
 
-![docker3.png](../img/docker3.png)
+![docker3.png](presentation/img/docker3.png)
 
 Docker Desktop allows you to:
 - View container information, including **logs** and **files**
@@ -474,7 +474,7 @@ _The `-d` flag runs the containers in **detached mode**, meaning they will keep 
 
 Docker will pull the necessary images, create a default network (`docmost_default`), and set up the persistent volumes. To check the status of your containers, run:
 
-![](./img/docker12.png)
+![](presentation/docker12.png)
 
 
 ```bash
@@ -483,5 +483,5 @@ docker compose ps
 
 Once all containers show as `running` or `healthy`, you can access Docmost through your browser at: **`http://localhost:3000`**
 
-![](./img/docker13.png)
-![](./img/docker14.png)
+![](presentation/img/docker13.png)
+![](presentation/img/docker14.png)
