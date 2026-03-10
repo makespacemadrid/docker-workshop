@@ -6,7 +6,7 @@ https://makespacemadrid.org/
 
 12/03/2026
 
-![logo](img/logo.png)
+![logo](presentation/img/logo.png)
 
 ---
 # Why Docker?
