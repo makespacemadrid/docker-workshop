@@ -86,6 +86,7 @@ sudo apt install ./docker-desktop-amd64.deb
 ## Play with Docker
 
 If you want to try Docker without installing it locally:
+
 ---
 
 # Containers
