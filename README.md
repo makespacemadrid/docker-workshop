@@ -403,6 +403,60 @@ wget <other_container_IP:PORT>
     
 - **Important:** This feature **only works on user-defined networks**. It does not work on the default `bridge` network. Using user-defined networks is a best practice to achieve proper network isolation and easy service discovery.
 
+---
+# Volumes
+
+When you delete a container, its internal files are lost. However, there are two main ways to keep your data safe:
+
+1. **Volumes:** Data is stored outside the container's lifecycle. Even if the container is removed, the data persists.
+2. **Bind Mounts:** This method links a specific directory on your host machine directly to a directory inside the container.
+
+**Working with Volumes**
+
+In a **Dockerfile**, you can use the `VOLUME` instruction to declare a persistent point. For example, in a MariaDB image:
+
+`VOLUME /var/lib/mysql`
+
+When the container starts, Docker creates a volume and mounts it at `/var/lib/mysql`.
+
+By default, Docker assigns a random, cryptic name to the volume. To make it dentifiable, you should assign a custom name when running the container (e.g., `-v my-db-data:/var/lib/mysql`).
+
+**Useful Commands:**
+
+- `docker volume ls`: Lists all available volumes.
+- `docker volume inspect <name>`: Shows detailed information about a specific volume.
+
+**Verifying the Data:**  
+If you want to see the files inside, use `docker exec -it <container_id> bash` to enter the container. Once inside, navigate to the directory (`cd /var/lib/mysql`) and run `ls` to list all the persistent files.
+
+**Bind Mounts**
+
+How can I use a host folder with Docker? It's easy. For an Apache container, you must specify the path using the `-v` flag:
+
+`docker run -d -p 80:80 -v C:\hostDir:/usr/local/apache2/htdocs/ httpd`
+
+This command maps your local directory `C:\hostDir` to the container's document root. Any changes you make to the files on your host will immediately reflect inside the container. This is particularly useful for development, as you don't need to rebuild the image to see your code changes.
+
+---
+
+🚀 Challenge: The "Live Code" PHP Server
+
+PHP requires a server-side engine to process the code, whereas HTML is simply rendered by the browser. By using a bind mount, we can edit our code on the host machine and see the results instantly inside the container.
+
+You will use Docker to spin up a professional web server in seconds and link your local folder to it using a **Bind Mount**
+
+```php
+<?php
+	echo "<h1>Hi! You are in MakeSpace :) </h1>";
+	echo "<p>Current server time" . date('H:i:s') ."</p>";
+	echo "<p>Try changing this text in your editor and refreshing the page.</p>";
+?>
+```
+
+`docker run -d -p 8080:80 --name php-server -v C:\host dir:/var/www/html php:apache`
+
+---
+
 # Docmost: Open-Source Collaborative Wiki
 
 [Docmost](https://docmost.com/) is an **enterprise-ready**, open-source collaborative wiki and documentation platform. It is designed for seamless **real-time collaboration**, allowing multiple users to edit the same page simultaneously without conflicts or data loss.
