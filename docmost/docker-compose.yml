@@ -14,6 +14,8 @@ services:
     restart: unless-stopped
     volumes:
       - docmost:/app/data/storage
+    networks:
+      - docmost-net
 
   db:
     image: postgres:18
@@ -24,6 +26,8 @@ services:
     restart: unless-stopped
     volumes:
       - db_data:/var/lib/postgresql
+    networks:
+      - docmost-net
 
   redis:
     image: redis:8
@@ -31,8 +35,14 @@ services:
     restart: unless-stopped
     volumes:
       - redis_data:/data
+    networks:
+      - docmost-net
 
 volumes:
   docmost:
   db_data:
   redis_data:
+
+networks:
+  docmost-net:
+    driver: bridge
