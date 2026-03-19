@@ -96,8 +96,89 @@ If you want to try Docker without installing it locally:
 - **Isolated**: They have minimal influence on the host and other containers, increasing security
 - **Independent**: Each container is independently managed. Deleting one container won't affect any others
 - **Portable**: Containers can run anywhere - the same container works on your development machine, in a data center, or in the cloud
+---
+# Docker Images
+
+## What is an Image?
+
+If you're new to container images, think of them as a standardized package that contains everything needed to run an application, including its files, configuration, and dependencies. These packages can be distributed and shared with others.
+
+For a PostgreSQL image, that image will package the database binaries, config files, and other dependencies. For a Python web app, it'll include the Python runtime, your app code, and all of its dependencies.
+
+## Two Important Principles of Images
+
+1. **Images are immutable**: Once an image is created, it can't be modified. You can only make a new image or add changes on top of it.
+
+2. **Images are composed of layers**: Each layer represents a set of file system changes that add, remove, or modify files.
+
+These principles let you extend or add to existing images. For example, if you're building a Python app, you can start from the Python image and add additional layers to install your app's dependencies and add your code.
+
+## Docker Hub
+
+To share your Docker images, you need a place to store them. This is where registries come in.
+
+Docker Hub is the default and go-to registry for images. It provides both a place for you to store your own images and to find images from others to either run or use as the bases for your own images.
+
+## Image Commands
+
+**Download an image from Docker Hub:**
+```bash
+docker pull <image_name>
+```
+
+**List available images:**
+```bash
+docker image ls
+```
+
+**Remove an image:**
+```bash
+docker image rm <image_name>
+```
+
+**Remove all unused images:**
+```bash
+docker image prune
+```
+
+**View image digests:**
+```bash
+docker images --digests
+```
+
+**View image history:**
+```bash
+docker history <image_name>
+```
+
+---
+
+# What is a Dockerfile?
+
+A Dockerfile is a text-based script that provides the instruction set on how to build an image. It contains all the commands needed to create a specific image.
+
+**Example for a simple password generator web app**
+
+Download the password generator web app from GitHub:
+
+https://github.com/makespacemadrid/docker-workshop/tree/main/pass-generator
+
+```bash
+docker build -t pwd-gen .
+docker run -d -p 8080:80 pwd-gen
+```
 
 
+**The Dockerfile code**
+
+```Dockerfile
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+---
 ## Run Your First Container
 
 ```bash
@@ -232,89 +313,6 @@ Docker Desktop allows you to:
 - View container information, including **logs** and **files**
 - Access the shell via the **Exec** tab
 - Perform actions like **pause, resume, start, or stop**
-
----
-
-# Docker Images
-
-## What is an Image?
-
-If you're new to container images, think of them as a standardized package that contains everything needed to run an application, including its files, configuration, and dependencies. These packages can be distributed and shared with others.
-
-For a PostgreSQL image, that image will package the database binaries, config files, and other dependencies. For a Python web app, it'll include the Python runtime, your app code, and all of its dependencies.
-
-## Two Important Principles of Images
-
-1. **Images are immutable**: Once an image is created, it can't be modified. You can only make a new image or add changes on top of it.
-
-2. **Images are composed of layers**: Each layer represents a set of file system changes that add, remove, or modify files.
-
-These principles let you extend or add to existing images. For example, if you're building a Python app, you can start from the Python image and add additional layers to install your app's dependencies and add your code.
-
-## Docker Hub
-
-To share your Docker images, you need a place to store them. This is where registries come in.
-
-Docker Hub is the default and go-to registry for images. It provides both a place for you to store your own images and to find images from others to either run or use as the bases for your own images.
-
-## Image Commands
-
-**Download an image from Docker Hub:**
-```bash
-docker pull <image_name>
-```
-
-**List available images:**
-```bash
-docker image ls
-```
-
-**Remove an image:**
-```bash
-docker image rm <image_name>
-```
-
-**Remove all unused images:**
-```bash
-docker image prune
-```
-
-**View image digests:**
-```bash
-docker images --digests
-```
-
-**View image history:**
-```bash
-docker history <image_name>
-```
-
----
-
-# What is a Dockerfile?
-
-A Dockerfile is a text-based script that provides the instruction set on how to build an image. It contains all the commands needed to create a specific image.
-
-**Example for a simple password generator web app**
-
-Download the password generator web app from GitHub:
-
-https://github.com/makespacemadrid/docker-workshop/tree/main/pass-generator
-
-```bash
-docker build -t pwd-gen .
-docker run -d -p 8080:80 pwd-gen
-```
-
-
-**The Dockerfile code**
-
-```Dockerfile
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-```
 
 ---
 
